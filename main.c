@@ -1105,6 +1105,17 @@ static gboolean on_key_press(GtkWidget *w, GdkEventKey *ev, gpointer user_data) 
             seek_relative(app, VERT_SEEK_STEP);
             show_overlay_temporarily(app);
             return TRUE;
+        case GDK_KEY_minus:
+        case GDK_KEY_KP_Subtract:
+            adjust_volume(app, -app->cfg.volume_step);
+            show_overlay_temporarily(app);
+            return TRUE;
+        case GDK_KEY_equal:
+        case GDK_KEY_plus:
+        case GDK_KEY_KP_Add:
+            adjust_volume(app, app->cfg.volume_step);
+            show_overlay_temporarily(app);
+            return TRUE;
         case GDK_KEY_c:
         case GDK_KEY_C:
             open_track_menu(app);
